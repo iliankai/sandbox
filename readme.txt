@@ -2,4 +2,4 @@ Git is a distributed control system.
 Git is free software distributed under the GPL.
 Yound people learn, why don't you?
 Git has a mutable index called stage.
-Git tracks changes.
+Git tracks changes of files.
