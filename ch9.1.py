@@ -6,21 +6,24 @@ from requests.auth import HTTPBasicAuth
 #params = {'firstname':'Eric', 'lastname':'Cartman'}
 #r = requests.post('http://www.pythonscraping.com/pages/files/processing.php', data=params)
 
-url = 'http://pythonscraping.com/pages/cookies/welcome.php'
+url1 = 'http://pythonscraping.com/pages/cookies/welcome.php'
 params = {'username':'Ryan', 'password':'password'}
-
-#r = requests.post(url, params)
-r = requests.post(url, params, timeout=2)
+r1= requests.post(url1, params, timeout=3)
 print('Cookie is set to:')
-print(r.cookies.get_dict())
+print(r1.cookies.get_dict())
 print('================')
 print('Getting in to profile ...')
 
-url_profile = 'http://pythonscraping.com/pages/cookies/profile.php'
-r2 = requests.get(url_profile, cookies=r.cookies)
+url2 = 'http://pythonscraping.com/pages/cookies/profile.php'
+r2 = requests.get(url2, cookies=r1.cookies, timeout=3)
 print('r2: ', r2.text)
 
 auth = HTTPBasicAuth('kkk', 'password')
-r3 = requests.post(url='http://pythonscraping.com/pages/auth/login.php', auth=auth)
+url3 = 'http://pythonscraping.com/pages/auth/login.php'
+r3 = requests.post(url=url3, auth=auth, timeout=3)
 print('r3: ', r3.text)
+
+url4 = 'http://www.pythonscraping.com/pages/javascript/ajaxDemo.html'
+r4 = requests.post(url4, timeout=3)
+print('r4: ', r4.text)
 
